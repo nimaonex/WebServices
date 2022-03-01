@@ -1,0 +1,17 @@
+﻿@model _01_MVCWebAppIntro.Models.Bicycle
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit";
+}
+<div class="container">
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        { 
+            <input type="text" name="Size" value="@Model.Size" />
+            <br />
+            <input type="text" name="ProductionDate" value="@Model.ProductionDate" />
+            <br />
+            <input type="submit" value="Edit Bicycle" />
+        }
+    </div>
+</div>

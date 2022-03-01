@@ -1,0 +1,44 @@
+﻿@model _01_MVCWebAppIntro.Models.Bicycle
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Create";
+}
+<div class="container">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Create", "Bicycles", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.ValidationSummary()
+            </div>
+            <div class="form-group">
+                <div class=" col-md-2">
+                    @Html.LabelFor(m => m.Size, htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Size, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Size, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class=" col-md-2">
+                    @Html.LabelFor(m => m.ProductionDate, htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.ProductionDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ProductionDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-10 col-md-2">
+                    <input type="submit" value="Add Bicycle" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts{
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
